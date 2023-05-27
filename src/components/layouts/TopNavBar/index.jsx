@@ -43,7 +43,7 @@ function TopNavBar({ open, handleDrawerOpen, show }) {
                 >
                     <MenuIcon />
                 </IconButton>
-                <Typography variant="h6" noWrap component="div" sx={{ fontSize: '20px', fontWeight: '600', minWidth: 'fit-content' }}>
+                <Typography variant="h4" noWrap component="div" sx={{ fontSize: '20px', fontWeight: '600', minWidth: 'fit-content' }}>
                     Dashboard
                 </Typography>
                 {show && <Container sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', marginRight: 0 }} disableGutters>

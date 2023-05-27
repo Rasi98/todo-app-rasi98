@@ -11,7 +11,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import Typography from '@mui/material/Typography';
 import { drawerWidth } from '../../../styles/DrawerWidth';
 import DashboardIcon from '../../../assets/Dashboard.svg'
@@ -20,7 +19,6 @@ import DashboardIcon from '../../../assets/Dashboard.svg'
 const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
-    // padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
     backgroundColor: 'rgba(235, 230, 237, 0.1)',
@@ -45,7 +43,7 @@ function SideBar({ open, handleDrawerClose }) {
             open={open}
         >
             <DrawerHeader>
-                <Typography variant="h6" noWrap component="div" sx={{ fontSize: '1.3rem', fontWeight: '700', marginRight: '10px' }}>
+                <Typography variant="h3" noWrap component="div" sx={{ fontSize: '1.3rem', fontWeight: '700', marginRight: '10px' }}>
                     Acmy Solutions
                 </Typography>
                 <IconButton onClick={handleDrawerClose} sx={{ color: 'white' }}>
