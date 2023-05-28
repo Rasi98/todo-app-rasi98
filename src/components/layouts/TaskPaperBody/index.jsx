@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import TaskItem from '../../atoms/TaskItem'
 import { useTheme } from '@mui/material/styles';
 import {
@@ -10,7 +11,6 @@ import {
     TableFooter,
     TablePagination,
     Box,
-    Divider
 } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import IconButton from '@mui/material/IconButton';
@@ -18,7 +18,7 @@ import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
-import { userData } from '../../../staticData/userData'
+import Loading from '../../atoms/loading';
 
 function TablePaginationActions(props) {
     const theme = useTheme();
@@ -74,12 +74,11 @@ function TablePaginationActions(props) {
     );
 }
 
-function TaskPaperBody() {
+function TaskPaperBody({ data }) {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(8);
 
-    const emptyRows =
-        page > 0 ? Math.max(0, (1 + page) * rowsPerPage - userData.length) : 0;
+    const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - data.data.length) : 0;
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -91,16 +90,19 @@ function TaskPaperBody() {
     };
 
     return (
+
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
+                {data.loading ? <TableBody><TableRow><TableCell><Loading /></TableCell></TableRow></TableBody> :
                 <TableBody>
                     {(rowsPerPage > 0
-                        ? userData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                        : userData
+                            ? data.data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                            : data.data
                     ).map((item) => (
                         <TableRow key={item.id} hover>
-                            <TaskItem priority={item.priority} text={item.todo} date={item.createdAt} completed={item.completed} />
-                            <Divider />
+                            <TableCell padding='none'>
+                                <TaskItem priority={item.priority} text={item.todo} date={item.createdAt} completed={item.completed} />
+                            </TableCell>
                         </TableRow>
                     ))}
 
@@ -109,13 +111,13 @@ function TaskPaperBody() {
                             <TableCell colSpan={6} />
                         </TableRow>
                     )}
-                </TableBody>
+                    </TableBody>}
                 <TableFooter>
                     <TableRow>
                         <TablePagination
                             rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
                             colSpan={3}
-                            count={userData.length}
+                            count={data.data.length}
                             rowsPerPage={rowsPerPage}
                             page={page}
                             SelectProps={{
@@ -134,6 +136,10 @@ function TaskPaperBody() {
         </TableContainer>
 
     )
+}
+
+TaskPaperBody.propTypes = {
+    data: PropTypes.object
 }
 
 export default TaskPaperBody

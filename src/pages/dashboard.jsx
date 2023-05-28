@@ -35,13 +35,13 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 function Dashboard() {
-    const [open, setOpen] = useState(true);
-    const [show, setShow] = useState(true);
+    const [open, setOpen] = useState(window.innerWidth > 800);
+    const [show, setShow] = useState(window.innerWidth > 800);
 
     useEffect(() => {
         const handleResize = () => {
-            setOpen(window.innerWidth > 600)
-            setShow(window.innerWidth > 600)
+            setOpen(window.innerWidth > 800)
+            setShow(window.innerWidth > 800)
         };
         window.addEventListener('resize', handleResize);
         return () => {

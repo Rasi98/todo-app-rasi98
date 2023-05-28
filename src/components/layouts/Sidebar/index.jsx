@@ -67,7 +67,7 @@ function SideBar({ open, handleDrawerClose }) {
 
 SideBar.propTypes = {
     open: PropTypes.bool.isRequired,
-    handleDrawerOpen: PropTypes.func.isRequired
+    handleDrawerOpen: PropTypes.func
 }
 
 export default SideBar

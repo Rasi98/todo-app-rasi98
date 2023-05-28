@@ -9,13 +9,10 @@ function ToDoIcon({ priority }) {
         switch (priority) {
             case 'HIGH':
                 return <img src={RedIcon} alt='icon' />
-                break;
             case 'MEDIUM':
                 return <img src={YellowIcon} alt='icon' />
-                break;
             case 'LOW':
                 return <img src={BlueIcon} alt='icon' />
-                break;
             default:
                 break;
         }

@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Paper, Typography, Link } from '@mui/material'
+import { Paper, Typography, Link, Box } from '@mui/material'
 import BannerImage from '../../assets/Vector.svg'
+import close from '../../assets/Close.svg'
 
-function Banner({ bannerHeading, bannerBody, bannerLinkText, bannerLink }) {
+function Banner({ bannerHeading, bannerBody, bannerLinkText, bannerLink, closeBanner }) {
     return (
         <Paper
             variant='outlined'
@@ -15,6 +16,9 @@ function Banner({ bannerHeading, bannerBody, bannerLinkText, bannerLink }) {
                 padding: '1rem 1rem',
             }}
         >
+            <Box sx={{ width: '100%', display: 'flex', justifyContent: 'flex-end' }}>
+                <img src={close} alt='close' style={{ cursor: 'pointer' }} onClick={() => closeBanner()} />
+            </Box>
             <Typography variant="h3" noWrap component="div" sx={{ fontWeight: 600, fontSize: '24px' }}>
                 {bannerHeading}
             </Typography>
@@ -37,7 +41,8 @@ Banner.propTypes = {
     bannerHeading: PropTypes.string.isRequired,
     bannerBody: PropTypes.string.isRequired,
     bannerLink: PropTypes.string.isRequired,
-    bannerLinkText: PropTypes.string.isRequired
+    bannerLinkText: PropTypes.string.isRequired,
+    closeBanner: PropTypes.func.isRequired
 }
 
 export default Banner

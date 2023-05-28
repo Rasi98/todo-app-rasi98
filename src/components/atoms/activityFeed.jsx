@@ -1,4 +1,4 @@
-import { Box, Grid, Typography, Divider } from '@mui/material'
+import { Box, Grid, Typography } from '@mui/material'
 import PropTypes from 'prop-types'
 import React from 'react'
 
