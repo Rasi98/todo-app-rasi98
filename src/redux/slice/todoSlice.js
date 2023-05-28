@@ -2,9 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchToDos = createAsyncThunk("todo/fetchToDos", async () => {
-  const response = await axios.get(
-    "https://6363c8f68a3337d9a2e7d805.mockapi.io/api/to-do"
-  );
+  const response = await axios.get(process.env.REACT_APP_API);
   return response.data;
 });
 
