@@ -32,10 +32,10 @@ const AppBar = styled(MuiAppBar, {
 
 function TopNavBar({ open, handleDrawerOpen, show }) {
     return (
-        <AppBar position="fixed" open={open} color='transparent'>
+        <AppBar position="fixed" open={open} sx={{ backgroundColor: 'rgb(255,255,255)' }}>
             <Toolbar>
                 <IconButton
-                    color="inherit"
+                    color="default"
                     aria-label="open drawer"
                     onClick={handleDrawerOpen}
                     edge="start"
@@ -43,7 +43,7 @@ function TopNavBar({ open, handleDrawerOpen, show }) {
                 >
                     <MenuIcon />
                 </IconButton>
-                <Typography variant="h4" noWrap component="div" sx={{ fontSize: '20px', fontWeight: '600', minWidth: 'fit-content' }}>
+                <Typography variant="h4" noWrap component="div" sx={{ fontSize: '20px', fontWeight: '600', minWidth: 'fit-content' }} color={'black'}>
                     Dashboard
                 </Typography>
                 {show && <Container sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', marginRight: 0 }} disableGutters>

@@ -5,6 +5,7 @@ import Banner from '../../atoms/Banner'
 import { bannerData } from '../../../staticData/banner'
 import TaskPaperLayout from '../TaskPaperLayout';
 import ActivityFeedLayout from '../ActivityFeedLayout';
+import TaskPriorityLayout from '../TaskPriorityLayout';
 
 function DashboardContent() {
     return (
@@ -20,13 +21,13 @@ function DashboardContent() {
                     <Grid xs={12} md={7} >
                         <TaskPaperLayout />
                     </Grid>
-                    <Grid xs={12} md={4} sx={{ height: '300px' }}>
-                        <Grid container direction={'column'}>
-                            <Grid xs={12} sx={{ height: '300px' }}>
+                    <Grid xs={12} md={4} >
+                        <Grid container direction={'column'} gap={2}>
+                            <Grid xs={12} >
                                 <ActivityFeedLayout />
                             </Grid>
-                            <Grid xs={12} sx={{ height: '300px' }}>
-                                {/* <PaperLayout /> */}
+                            <Grid xs={12} >
+                                <TaskPriorityLayout />
                             </Grid>
                         </Grid>
 

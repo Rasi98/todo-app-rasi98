@@ -9,7 +9,8 @@ import {
     TableCell,
     TableFooter,
     TablePagination,
-    Box
+    Box,
+    Divider
 } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import IconButton from '@mui/material/IconButton';
@@ -75,7 +76,7 @@ function TablePaginationActions(props) {
 
 function TaskPaperBody() {
     const [page, setPage] = useState(0);
-    const [rowsPerPage, setRowsPerPage] = useState(5);
+    const [rowsPerPage, setRowsPerPage] = useState(8);
 
     const emptyRows =
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - userData.length) : 0;
@@ -97,8 +98,9 @@ function TaskPaperBody() {
                         ? userData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                         : userData
                     ).map((item) => (
-                        <TableRow key={item.id}>
+                        <TableRow key={item.id} hover>
                             <TaskItem priority={item.priority} text={item.todo} date={item.createdAt} completed={item.completed} />
+                            <Divider />
                         </TableRow>
                     ))}
 

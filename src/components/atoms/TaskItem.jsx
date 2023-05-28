@@ -53,7 +53,7 @@ function TaskItem({ priority, text, completed, date }) {
                     <Typography
                         variant='body1'
                         color='rgba(188, 0, 109, 1)'
-                        sx={{ fontWeight: 500, fontSize: '12px', lineHeight: '22spx', cursor: 'pointer' }}
+                        sx={{ fontWeight: 500, fontSize: '12px', lineHeight: '22spx', cursor: 'pointer', width: 'fit-content' }}
                     >
                         Mark as done
                     </Typography></Grid>

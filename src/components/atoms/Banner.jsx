@@ -12,7 +12,7 @@ function Banner({ bannerHeading, bannerBody, bannerLinkText, bannerLink }) {
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
                 backgroundPositionX: 'right',
-                padding: '1.5rem 1rem',
+                padding: '1rem 1rem',
             }}
         >
             <Typography variant="h3" noWrap component="div" sx={{ fontWeight: 600, fontSize: '24px' }}>
